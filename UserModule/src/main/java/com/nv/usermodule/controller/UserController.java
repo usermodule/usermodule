@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nv.usermodule.dto.UserDTO;
+import com.nv.usermodule.entity.Address;
 import com.nv.usermodule.entity.User;
 import com.nv.usermodule.repository.IUserRepository;
 import com.nv.usermodule.service.IUserService;
@@ -30,10 +31,8 @@ public class UserController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	
-   @Autowired
-
-   IUserService userService;
+	@Autowired
+	IUserService userService;
 
 	@Autowired
 	UserDTOConvertor dtoConvertor;
@@ -71,28 +70,56 @@ public class UserController {
 
 		return new ResponseEntity<List<UserDTO>>(dtoList, HttpStatus.OK);
 	}
-	
-	
-	@GetMapping("/userbyid/{userId}")
-	
-	public ResponseEntity<UserDTO> getUserById(@PathVariable int userId) throws Exception{
-		User userFromDB = userService.getUserById(userId);
-		if(userFromDB!= null) {
-			UserDTO dto = dtoConvertor.convertTo(userFromDB);
-			return new ResponseEntity<UserDTO>(dto,HttpStatus.OK);
+
+	@GetMapping("/userbycity/{city}")
+
+	public ResponseEntity<List<UserDTO>> getUserByCity(@PathVariable String city) {
+
+		List<User> allUsers = userService.getUserByCity(city);
+		List<UserDTO> dto = new ArrayList<>();
+		for(User user: allUsers) {
+			UserDTO userDTO = dtoConvertor.convertTo(user);
+			dto.add(userDTO);
 		}
-		else return null;
+
+		return new ResponseEntity<List<UserDTO>>(dto, HttpStatus.OK);
+
 	}
+
+	@GetMapping("/userbystate/{state}")
+
+	public ResponseEntity<List<UserDTO>> getUserByState(@PathVariable String state) {
+
+		List<User> allUsers = userService.getUserByState(state);
+		List<UserDTO> dtoObj= new ArrayList<>();
+		for(User user: allUsers) {
+			UserDTO userDTO = dtoConvertor.convertTo(user);
+			dtoObj.add(userDTO);
+		}
+
+		return new ResponseEntity<List<UserDTO>>(dtoObj, HttpStatus.OK);
 	
-	@PutMapping("/updateuser/{userId}")
-	
-	public String updatedUser(@PathVariable int userId) {
 		
+	}
+
+	@GetMapping("/userbyid/{userId}")
+
+	public ResponseEntity<UserDTO> getUserById(@PathVariable int userId) throws Exception {
+		User userFromDB = userService.getUserById(userId);
+		if (userFromDB != null) {
+			UserDTO dto = dtoConvertor.convertTo(userFromDB);
+			return new ResponseEntity<UserDTO>(dto, HttpStatus.OK);
+		} else
+			return null;
+	}
+
+	@PutMapping("/updateuser/{userId}")
+
+	public String updatedUser(@PathVariable int userId) {
+
 		User updatedUser = userService.getUserById(userId);
 		return updatedUser.toString();
 	}
-	
-	
-	
 
 }
+//User Module
