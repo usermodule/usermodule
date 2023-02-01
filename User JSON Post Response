@@ -1,0 +1,13 @@
+{
+    "userId": 252,
+    "firstName": "Shrik",
+    "lastName": "Rao",
+    "phoneNumber": 9123786738,
+    "emailId": "Shree@gmail.com",
+    "address": {
+        "address": "LMN Society-ASD Road-Mumbai",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "pincode": 400002
+    }
+}
