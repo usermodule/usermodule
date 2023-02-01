@@ -1,10 +1,14 @@
 package com.nv.usermodule.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.nv.usermodule.dto.UserDTO;
+import com.nv.usermodule.entity.Address;
 import com.nv.usermodule.entity.User;
 import com.nv.usermodule.exception.InvalidUserException;
 import com.nv.usermodule.repository.IUserRepository;
@@ -38,7 +42,42 @@ public class UserServiceImpl implements IUserService {
 		return userRepository.findAll();
 	}
 
+		
 	
+
+	@Override
+	
+	public List<User> getUserByCity(String searchCity) {
+		//get all users 
+		List<User> allUsers = userRepository.findAll();
+		//Filter user through for loop based on city
+		List<User> allUserByCity = new ArrayList<>();
+		for(User user : allUsers) {
+			String userCity =user.getAddress().getCity();
+		if(userCity.equals(searchCity)) {
+			allUserByCity.add(user);
+		}
+		}
+		
+		return allUserByCity;
+	}
+	
+	
+
+	@Override
+	public List<User> getUserByState(String searchstate) {
+		
+		List<User> allUsers = userRepository.findAll();
+		List<User> allUserByState = new ArrayList<>();
+		for (User user: allUsers) {
+			String userState = user.getAddress().getState();
+			if(userState.equals(searchstate)) {
+				allUserByState.add(user);
+			}
+		}
+		return allUserByState;
+	}
+
 	@Override
 	public User getUserById(int userId) {
 		

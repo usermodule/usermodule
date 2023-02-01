@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.nv.usermodule.entity.Address;
 import com.nv.usermodule.entity.User;
 
 @Service
@@ -17,5 +18,9 @@ public interface IUserService {
 	public User getUserById(int userId);
 	
 	public User updateUser(int userId);
+	
+	public List<User> getUserByState(String state);
+	
+	public List<User> getUserByCity (String city);
 
 }
