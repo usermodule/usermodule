@@ -3,6 +3,7 @@ package com.nv.usermodule.util;
 import org.springframework.stereotype.Component;
 
 import com.nv.usermodule.dto.UserDTO;
+import com.nv.usermodule.entity.Address;
 import com.nv.usermodule.entity.User;
 
 @Component
@@ -18,3 +19,4 @@ public class UserDTOConvertor {
 	
 
 }
+//end class
