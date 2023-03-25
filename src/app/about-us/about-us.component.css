@@ -1,0 +1,96 @@
+.upev{
+
+     margin-left: 5cm;
+    
+     background-color: rgb(202, 234, 226);
+    
+    
+    
+     border-radius: 5%;
+    
+     height: 4cm;
+    
+     width: 6cm;
+    
+    }
+    
+    .footer-bottom{
+    
+    
+    
+     width: 15%;
+    
+     display: inline-block;
+    
+    vertical-align: top;
+    
+     color: rgb(11, 20, 38);
+    
+     font-size: 20px;
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    .animate-charcter
+    
+    {
+    
+    margin-left: 5cm;
+    
+     background-image: linear-gradient(
+    
+     -225deg,
+    
+     #4e34ab 0%,
+    
+     #4b1f7a 29%,
+    
+     #ff1361 67%,
+    
+     #fff800 100%
+    
+     );
+    
+     background-size: auto auto;
+    
+     background-clip: border-box;
+    
+     background-size: 200% auto;
+    
+     color: #fff;
+    
+     background-clip: text;
+    
+     /* text-fill-color: transparent; */
+    
+     -webkit-background-clip: text;
+    
+     -webkit-text-fill-color: transparent;
+    
+     animation: textclip 2s linear infinite;
+    
+    display: inline-block;
+    
+    font-size: 24px;
+    
+    
+    
+    
+    }
+    
+    @keyframes textclip {
+    
+     to {
+    
+    background-position: 200% center;
+    
+     }
+    
+    }

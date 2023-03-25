@@ -1,0 +1,70 @@
+<table style="width: 100%; height: 15%;">
+  <tr>
+    <td style="width: 10%;"> <img src="/assets/Images/SiteIcon.jpg" width="150px" height="150px"> </td>
+    <td style="width: 70%;background-color: rgb(36, 84, 105);"> <span style="font-size: 60px; color: rgb(229, 229, 238);margin-left: 30%; ">Skillprovement</span> </td>
+    <td style="width: 20%;background-color: rgb(36, 84, 105); ">
+      <div *ngIf="loginStatus == false">
+        <table style="width: 100%; height: 100%;">
+          <tr><input type="text" placeholder="username" #username/></tr>
+          <tr><input type="password" placeholder="password" #password/> </tr>
+          <tr>
+             <button (click)="verifyUser(username.value,password.value)"> Login</button> 
+             <button > Register </button> 
+          </tr>
+        </table>
+      </div>
+
+      <div *ngIf="loginStatus == true">
+          <table>
+            <tr>
+              <td> 
+                   Welcome <b> {{loginUsername}} </b> as <i> {{userRole}} </i> 
+                   <br/>
+                   <a href="#"> profile </a>
+                   <a href="#" (click)="doLogout()" style="margin-left: 20px;"> logout </a>
+                   
+              </td>
+            </tr>
+          </table>
+      </div>
+
+    </td>
+  </tr>
+</table>
+<hr class="line"/>
+
+
+
+
+<table style="width: 100%; height: 30%;" *ngIf="loginStatus == true">
+  <tr *ngIf="(loginUsername == 'Admin')">
+    
+    
+    <td class="link"> <a routerLink="/aboutUs">About Us</a> </td>
+    <td class="link"> <a routerLink="/addTestPaper">Add Exam</a> </td>
+    <td class="link"> <a routerLink="/">Add Question</a> </td>
+    <td class="link"> <a routerLink="/viewQuestion">View Question</a> </td>
+    <td class="link"> <a routerLink="/">Feedback</a> </td>
+    
+  </tr>
+
+  <tr *ngIf="(loginUsername == 'User')">
+    
+    <td class="link"> <a routerLink="/aboutUs">About Us</a> </td>
+    <td class="link"> <a routerLink="/">Attempt Exam</a> </td>
+    <td class="link"> <a routerLink="/">Feedbacks</a> </td>
+   
+    
+  </tr>
+
+  
+
+</table>
+
+<hr class="line2" *ngIf="loginStatus == true"/>
+<div *ngIf="loginStatus == false">
+
+</div>
+<div *ngIf="loginStatus == true">
+  <router-outlet></router-outlet>
+</div>
