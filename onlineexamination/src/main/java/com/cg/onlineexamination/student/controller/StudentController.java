@@ -23,20 +23,20 @@ import com.cg.onlineexamination.student.util.StudentDTOConvertor;
 @RestController
 @RequestMapping("/student")
 public class StudentController {
-	
+
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	IStudentService studentService;
-	
+
 	@Autowired
 	StudentDTOConvertor studentDtoConvertor;
-	
+
 	public StudentController() {
 		logger.info("student controller");
 		System.err.println("student controller");
 	}
-	
+
 	@PostMapping("/register")
 	public ResponseEntity<StudentDTO> saveStudent(@RequestBody Student student) throws Exception {
 		Student savedStudent = studentService.addStudent(student);
@@ -49,10 +49,9 @@ public class StudentController {
 		}
 		return null;
 	}
-	
+
 	@GetMapping("/list")
-	public ResponseEntity<List<StudentDTO>> getAllStudents()
-	{
+	public ResponseEntity<List<StudentDTO>> getAllStudents() {
 		List<Student> allStudentsInDB = studentService.getAllStudents();
 
 		List<StudentDTO> dtoList = new ArrayList<>();
@@ -62,27 +61,18 @@ public class StudentController {
 			dtoList.add(dtoObj);
 		}
 
-		return new ResponseEntity<List<StudentDTO>>(dtoList,HttpStatus.OK);
+		return new ResponseEntity<List<StudentDTO>>(dtoList, HttpStatus.OK);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 //	@GetMapping("/score/{studentId}")
 //	public int viewScoreByStuentId(@PathVariable int studentId){
 //		
 //		int savedStudent = studentService.getScoreByStudentId(studentId);
 //		
 //		return savedStudent;
-		
+
 //		Student savedStudent = studentService.getScoreByStudentId(studentId);
 ////		StudentDTO studentDTO = studentDtoConvertor.getStudentdto(savedStudent);
 ////		return new ResponseEntity<Student>(savedStudent,HttpStatus.OK);
 //		return savedStudent;
-	}
-			
+}

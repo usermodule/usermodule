@@ -14,14 +14,13 @@ import com.cg.onlineexamination.student.repository.TestPaperRepository;
 import com.cg.onlineexamination.student.repository.TestQuestionRepository;
 
 @Service
-public class TestPaperServiceImpl implements TestPaperService{
+public class TestPaperServiceImpl implements TestPaperService {
 
 	@Autowired
 	TestPaperRepository testPaperRepository;
-	
+
 	@Autowired
 	TestQuestionRepository testQuestionRepository;
-	
 
 	@Override
 	public TestPaper addTestPaper(TestPaper t) throws Exception {
@@ -37,7 +36,7 @@ public class TestPaperServiceImpl implements TestPaperService{
 
 	@Override
 	public List<TestPaper> getAllTestPaper() {
-		
+
 		return testPaperRepository.findAll();
 	}
 
@@ -45,9 +44,9 @@ public class TestPaperServiceImpl implements TestPaperService{
 	public List<TestPaper> getTestPaperByCourse(String course) {
 		List<TestPaper> allTestPaper = testPaperRepository.findAll();
 		List<TestPaper> allTestPaperByCourse = new ArrayList<>();
-		for(TestPaper testPaper: allTestPaper) {
+		for (TestPaper testPaper : allTestPaper) {
 			String testPaperCourse = testPaper.getCourse();
-			if(testPaperCourse.equals(course)) {
+			if (testPaperCourse.equals(course)) {
 				allTestPaperByCourse.add(testPaper);
 			}
 		}
@@ -59,28 +58,28 @@ public class TestPaperServiceImpl implements TestPaperService{
 		TestPaper testpaperfromDB = testPaperRepository.getReferenceById(testPaperId);
 		if (testpaperfromDB != null) {
 			return testpaperfromDB.getNoOfQuestions();
-			
+
+		} else {
+
+			return 0;
 		}
-		else {
-				
-		return 0;
-	}
 	}
 
-	
+//	@Override
+//	public TestPaper updateTestPaperById(int testPaperId) {
+//		TestPaper updatedPaper = testPaperRepository.getReferenceById(testPaperId);
+//		testPaperRepository.save(updatedPaper);
+//		return updatedPaper;
+//	}
+
 }
 
-	/*@Override
-	public TestPaper updateExam(int testPaperId, int examId) {
-		TestPaper savedTestPaper = testPaperRepository.getReferenceById(testPaperId);
-		Exam savedExam = examRepository.getReferenceById(examId);
-		if(savedTestPaper != null & savedExam != null) 
-		{
-			TestPaper updatedTestPaper = testPaperRepository.updateExamByTestPaper(savedTestPaper, savedExam);
-			testPaperRepository.save(updatedTestPaper);
-			return updatedTestPaper;
-		}
-		else return null;
-	}
-	}*/
-	
+/*
+ * @Override public TestPaper updateExam(int testPaperId, int examId) {
+ * TestPaper savedTestPaper = testPaperRepository.getReferenceById(testPaperId);
+ * Exam savedExam = examRepository.getReferenceById(examId); if(savedTestPaper
+ * != null & savedExam != null) { TestPaper updatedTestPaper =
+ * testPaperRepository.updateExamByTestPaper(savedTestPaper, savedExam);
+ * testPaperRepository.save(updatedTestPaper); return updatedTestPaper; } else
+ * return null; } }
+ */

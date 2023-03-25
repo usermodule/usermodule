@@ -20,45 +20,42 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Entity
 @Data
 @NoArgsConstructor
-
 
 public class Exam {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int examId;
-	
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "testPaperId")
-    private TestPaper testpaper;
-    
-    
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "testPaperId")
+	private TestPaper testpaper;
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "testQuestionId")
+//    private TestQuestion testQuestion;
+
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "studentd")
 //	private Student student;
-    
-    private int score;
-    private LocalDate dateOfExam;
-    private ArrayList<String> studentAnswer;
-    
-    
-	public Exam(LocalDate dateOfExam, ArrayList<String> studentAnswer) {
+
+	private int score;
+	private LocalDate dateOfExam;
+	private String studentAnswer;
+
+	public Exam(LocalDate dateOfExam, String studentAnswer) {
 		super();
+		
 		this.dateOfExam = dateOfExam;
 		this.studentAnswer = studentAnswer;
 	}
-	
+
 	public Exam(LocalDate dateOfExam) {
 		super();
 		this.dateOfExam = dateOfExam;
-	
+
 	}
-    
-    
-    
-	
+
 }

@@ -8,13 +8,9 @@ import com.cg.onlineexamination.student.dto.StudentDTO;
 @Component
 public class StudentDTOConvertor {
 
-	
-	public StudentDTO getStudentdto(Student s)
-	{ 
-		return new StudentDTO(s.getStudentId(),s.getUserName(),s.getPassword(),s.getFirstName(),s.getLastName(),s.getGender(),s.getEmailId(),s.getMobileNo());
+	public StudentDTO getStudentdto(Student s) {
+		return new StudentDTO(s.getStudentId(), s.getUserName(), s.getPassword(), s.getFirstName(), s.getLastName(),
+				s.getGender(), s.getEmailId(), s.getMobileNo());
 
-	
+	}
 }
-}
-
-

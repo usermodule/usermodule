@@ -11,5 +11,5 @@ public class ExamFormDto {
 
 	private int questionNo;
 	private String studAnswer;
-	
+
 }

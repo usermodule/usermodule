@@ -11,25 +11,24 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 
-
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int studentId;
-	
+
 	private String userName;
-	private int password;
+	private String password;
 	private String firstName;
 	private String lastName;
 	private String gender;
 	private String emailId;
 	private long mobileNo;
 //	private int score;
-	
-	public Student(String userName, int password, String firstName, String lastName, String gender,
-			String emailId, long mobileNo) {
+
+	public Student(String userName, String password, String firstName, String lastName, String gender, String emailId,
+			long mobileNo) {
 		super();
-		
+
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
@@ -38,7 +37,5 @@ public class Student {
 		this.emailId = emailId;
 		this.mobileNo = mobileNo;
 	}
-	
-	
 
 }

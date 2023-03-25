@@ -8,12 +8,10 @@ import com.cg.onlineexamination.student.dto.TestPaperdto;
 @Component
 public class TestPaperDtoConvertor {
 
-	public TestPaperdto getTestPaperdto(TestPaper t)
-	{ 
-		return new TestPaperdto(t.getTestPaperId(),t.getDifficultyLevel(),t.getDescription(),t.getCourse(),t.getNoOfQuestions());
-	    
-		
-	}
+	public TestPaperdto getTestPaperdto(TestPaper t) {
+		return new TestPaperdto(t.getTestPaperId(), t.getDifficultyLevel(), t.getDescription(), t.getCourse(),
+				t.getNoOfQuestions());
 
+	}
 
 }

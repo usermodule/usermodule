@@ -14,30 +14,26 @@ import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class StudentServiceImpl implements IStudentService {
-	
+
 	@Autowired
 	IStudentRepository studentRepository;
 
 	@Override
 	public Student addStudent(Student student) throws Exception {
-			if (student != null) {
-				if (student.getUserName().equals("")) {
-					throw new InvalidClassException("student", "student is null");
-				}
-				
-			}// else
-				//throw new NullPointerException("student is null");
-			Student savedStudent = studentRepository.save(student);
-			return savedStudent;
-		}
+		if (student != null) {
+			if (student.getUserName().equals("")) {
+				throw new InvalidClassException("student", "student is null");
+			}
 
-	
-	
+		} // else
+			// throw new NullPointerException("student is null");
+		Student savedStudent = studentRepository.save(student);
+		return savedStudent;
+	}
 
 	@Override
 	public List<Student> getAllStudents() {
 		return studentRepository.findAll();
 	}
 
-	
 }

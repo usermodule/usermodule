@@ -12,22 +12,19 @@ import com.cg.onlineexamination.student.dto.ExceptionDTOResponse;
 @ControllerAdvice
 public class CommonExceptionHandler {
 
-	
 	@ExceptionHandler
-	 public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidStudentException e)
-	 {
-	  ExceptionDTOResponse dto = new ExceptionDTOResponse();
-	  dto.setErrorMsg(e.toString());
-	  dto.setDatetime(LocalDateTime.now()+"");
-	  return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
-	 }
-	               
-	 @ExceptionHandler
-	 public ResponseEntity<ExceptionDTOResponse> invalidPassword(NullPointerException e)
-	 {
-	  ExceptionDTOResponse dto = new ExceptionDTOResponse();
-	  dto.setErrorMsg(e.toString());
-	  dto.setDatetime(LocalDateTime.now()+"");
-	  return new ResponseEntity<ExceptionDTOResponse>(dto,HttpStatus.BAD_REQUEST);
-	 }
+	public ResponseEntity<ExceptionDTOResponse> invalidName(InvalidStudentException e) {
+		ExceptionDTOResponse dto = new ExceptionDTOResponse();
+		dto.setErrorMsg(e.toString());
+		dto.setDatetime(LocalDateTime.now() + "");
+		return new ResponseEntity<ExceptionDTOResponse>(dto, HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler
+	public ResponseEntity<ExceptionDTOResponse> invalidPassword(NullPointerException e) {
+		ExceptionDTOResponse dto = new ExceptionDTOResponse();
+		dto.setErrorMsg(e.toString());
+		dto.setDatetime(LocalDateTime.now() + "");
+		return new ResponseEntity<ExceptionDTOResponse>(dto, HttpStatus.BAD_REQUEST);
+	}
 }

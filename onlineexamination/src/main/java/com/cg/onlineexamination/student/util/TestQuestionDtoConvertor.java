@@ -7,13 +7,11 @@ import com.cg.onlineexamination.student.dto.TestQuestiondto;
 
 @Component
 public class TestQuestionDtoConvertor {
-	
-	public TestQuestiondto getTestQuestiondto(TestQuestion tq)
-	{ 
-		return new TestQuestiondto(tq.getQuestionId(),tq.getQuestion(),tq.getOption1(),tq.getOption2(),tq.getOption3(),tq.getOption4());
 
-	
-}
-	
+	public TestQuestiondto getTestQuestiondto(TestQuestion tq) {
+		return new TestQuestiondto(tq.getQuestionId(), tq.getQuestion(), tq.getOption1(), tq.getOption2(),
+				tq.getOption3(), tq.getOption4());
+
+	}
 
 }

@@ -1,4 +1,4 @@
-	package com.cg.onlineexamination.student.dto;
+package com.cg.onlineexamination.student.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,13 +11,11 @@ public class StudentDTO {
 
 	private int studentId;
 	private String userName;
-	private int password;
+	private String password;
 	private String firstName;
 	private String lastName;
 	private String gender;
 	private String emailId;
 	private long mobileNo;
-	
-	
-	
+
 }

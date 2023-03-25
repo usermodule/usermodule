@@ -7,7 +7,7 @@ import com.cg.onlineexamination.entity.TestPaper;
 import com.cg.onlineexamination.entity.TestQuestion;
 
 @Repository
-public interface TestQuestionRepository extends JpaRepository<TestQuestion, Integer>{
+public interface TestQuestionRepository extends JpaRepository<TestQuestion, Integer> {
 
 //	public void checkAnswer(String option);
 //	public TestQuestion updateQuestionByCourse(TestQuestion testQuestion, TestPaper testPaper);

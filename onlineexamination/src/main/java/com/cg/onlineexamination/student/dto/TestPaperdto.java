@@ -15,5 +15,4 @@ public class TestPaperdto {
 	private String course;
 	private int noOfQuestions;
 
-
 }

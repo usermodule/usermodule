@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.cg.onlineexamination.entity.TestPaper;
 
 @Repository
-public interface TestPaperRepository extends JpaRepository<TestPaper, Integer>{
+public interface TestPaperRepository extends JpaRepository<TestPaper, Integer> {
 
 }
