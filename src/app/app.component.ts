@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataOperationService } from './data-operation.service';
 import { ExamDto } from './exam-dto';
 import { ExamOperationService } from './exam-operation.service';
@@ -15,19 +16,15 @@ export class AppComponent {
   status=false;
   msg=' ';
   
-
-
-
-
-
   loginUsername:string = '';
   userRole :string = '';
   loginStatus:boolean = false;
   photo:string='';
 
   __dataService:DataOperationService;
+  
 
-  constructor(dataService:DataOperationService)
+  constructor(dataService:DataOperationService,private router: Router)
   {
     this.__dataService = dataService;
     this.loginStatus = false;
@@ -62,6 +59,9 @@ export class AppComponent {
   }
 
 
+  moveToRegister() {
+    this.router.navigate(['resgisterStudent']);
+  }
   
 
 }

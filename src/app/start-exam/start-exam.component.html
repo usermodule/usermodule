@@ -1,0 +1,100 @@
+
+
+<tr>
+    <!-- <td> <button  (click)="getTestQuestionById()" onclick="getElementById('hidden-div').style.display = 'block'; this.style.display = 'none'">Start</button> </td> -->
+    <td ><input type="text" style="margin-left: 12cm;" name="testPaperId" [(ngModel)] = "testPaperId"><br/><br/>
+      <!-- <button (click)="getTestQuestionById ()" style="margin-left: 12.5cm;" onclick="getElementById('hidden-div').style.display = 'block'; this.style.display = 'none'">Start</button></td> -->
+      <button (click)="getTestQuestionById ()" style="margin-left: 13cm;" class="btn btn-outline-info">Start</button></td>
+      
+  </tr>
+
+  <br/>
+  <div class="grid-container">
+
+   
+            <!-- <h5 class="card-title"><div style="color: rgb(146, 228, 219);"> -->
+<div class="panel panel-understanding-check">
+	<form class="multipleChoice">
+        <div *ngFor="let testQuestion of testQuestionDto">
+            <div class="card" >
+                        
+                <div class="card-body">
+		<div class="form-group">
+			<label for="radio">{{testQuestion.question}}</label>
+			<div class="radio">
+				<label>
+					<input type="radio" data-question-number="87518975480" name="question-87518975480" id="bsr-radios-97468235240" data-alert-type="alert-danger" data-comment="<strong>Incorrect</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit." value="radio97468235240">
+                    {{testQuestion.option1}}
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" data-question-number="87518975480" name="question-87518975480" id="bsr-radios-97468235241" data-alert-type="alert-danger" data-comment="<strong>Incorrect</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit." value="radio97468235241">
+					{{testQuestion.option2}}
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" data-question-number="87518975480" name="question-87518975480" id="bsr-radios-97468235242" data-alert-type="alert-danger" data-comment="<strong>Incorrect</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit." value="radio97468235242">
+					{{testQuestion.option3}}
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" data-question-number="87518975480" name="question-87518975480" id="bsr-radios-97468235243" data-alert-type="alert-success" data-comment="<strong>Correct</strong><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit." value="radio97468235243">
+					{{testQuestion.option4}}
+				</label>
+			</div>
+           
+            <button style="margin-left: 4cm;" class="btn btn-outline-info" (click)="updateScore()">Save</button>
+		</div>
+    </div>
+</div>
+<br/>
+    </div>
+	</form>
+	<div class="multiple-choice-alert alert hidden" id="87518975480" role="alert"></div>
+</div>
+</div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="grid-container">
+
+    <div *ngFor="let testPaper of allTestPaper">     
+                 <div>
+                    <div class="card" style="width: 18rem;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title"><div style="color: rgb(146, 228, 219);">
+                                <a (click)=" moveToStartExam()" ><u style="font-size: 1cm;">{{testQuestion.question}}</u></a>
+                            </div></h5>
+                            <div>Difficulty Level: {{testQuestion.difficultyLevel}}</div>
+                            <div>Description: {{testQuestion.description}}</div>
+                            <div>Number of Question: {{testQuestion.noOfQuestions}}</div>
+
+                        </div>
+                        
+                    </div>
+                </div> -->
+            
+                <!-- <br/> 
+    </div>
+</div> -->

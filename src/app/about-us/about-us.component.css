@@ -2,33 +2,40 @@
 
      margin-left: 5cm;
     
-     background-color: rgb(202, 234, 226);
-    
+     background-color: rgb(103, 230, 198);
+     width: max-content;
+    padding: 10%;
     
     
      border-radius: 5%;
     
-     height: 4cm;
+     height:max-content;
     
-     width: 6cm;
+     /* width: 6cm; */
     
     }
     
+    a{
+     text-decoration: none;
+    }
     .footer-bottom{
     
     
     
      width: 15%;
     
-     display: inline-block;
+     display: flex;
     
     vertical-align: top;
-    
+    /* text-align: center; */
      color: rgb(11, 20, 38);
     
+     justify-content: space-around;
      font-size: 20px;
+    gap: 20px;
     
-    
+    padding: 2%;
+   
     
     
     
@@ -66,7 +73,7 @@
     
      color: #fff;
     
-     background-clip: text;
+     background-clip: text; 
     
      /* text-fill-color: transparent; */
     
@@ -91,6 +98,6 @@
     
     background-position: 200% center;
     
-     }
+     } 
     
     }

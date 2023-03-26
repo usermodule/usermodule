@@ -1,8 +1,8 @@
 export class Student {
 
     studentId:number;
-	userName:string;
-	password:number;
+	username:string;
+	password:string;
 	firstName:string;
 	lastName:string;
 	gender:string;
@@ -12,8 +12,8 @@ export class Student {
 
     constructor(
         studentId:number,
-        userName:string,
-        password:number,
+        username:string,
+        password:string,
         firstName:string,
         lastName:string,
         gender:string,
@@ -22,7 +22,7 @@ export class Student {
     
     ){
         this.studentId = studentId;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
