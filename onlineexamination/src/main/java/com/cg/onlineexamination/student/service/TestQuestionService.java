@@ -21,7 +21,7 @@ public interface TestQuestionService {
 
 	public List<TestQuestion> getAllQuestionsByTestPaperId(int testPaperId);
 	
-	public List<TestQuestion> getAllQuestionsByCourse(String course,TestPaperdto testPaperDto);
+//	public List<TestQuestion> getAllQuestionsByCourse(String course,TestPaperdto testPaperDto);
 
 //	public List<TestQuestion> getAllQuestionsByTestPaperId(String course);
 

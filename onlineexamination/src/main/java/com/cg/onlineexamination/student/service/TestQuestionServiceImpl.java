@@ -103,23 +103,23 @@ public class TestQuestionServiceImpl implements TestQuestionService {
 
 	}
 
-	@Override
-	public List<TestQuestion> getAllQuestionsByCourse(String course,TestPaperdto testPaperDto) {
-		
-				
-		Optional<TestPaper> allTestQuestions =testPaperRepository.findById(testPaperDto.getTestPaperId());
-		
-		TestPaper testPaper = allTestQuestions.get();
-		
-		List<TestQuestion> allTestQuestion = new  ArrayList<>();
-		for (TestQuestion testQuestion : allTestQuestion) {
-			String testPaperCourse = testPaperDto.getCourse();
-			if (testPaperCourse.equals(course)) {
-				allTestQuestion.add(testQuestion);
-			}
-		}
-				
-		return allTestQuestion;
-	}
+//	@Override
+//	public List<TestQuestion> getAllQuestionsByCourse(String course,TestPaperdto testPaperDto) {
+//		
+//				
+//		Optional<TestPaper> allTestPaper =testPaperRepository.findById(testPaperDto.getTestPaperId());
+//		
+//		TestPaper testPaper = allTestPaper.get();
+//		
+//		List<TestQuestion> allTestQuestion = new  ArrayList<>();
+//		for (TestQuestion testQuestion : allTestQuestion) {
+//			String testPaperCourse = testPaperDto.getCourse();
+//			if (testPaperCourse.equals(course)) {
+//				allTestQuestion.add(testQuestion);
+//			}
+//		}
+//				
+//		return allTestQuestion;
+//	}
 
 }

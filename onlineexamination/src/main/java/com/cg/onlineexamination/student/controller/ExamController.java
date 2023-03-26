@@ -84,6 +84,13 @@ public class ExamController {
 }
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	@PutMapping("/{eid}/testPaper/{tpid}")
 
 	public String updateExamWithTestPaper(@PathVariable int eid,@PathVariable int tpid)

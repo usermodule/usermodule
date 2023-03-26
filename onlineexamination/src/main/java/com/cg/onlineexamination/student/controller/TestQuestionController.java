@@ -107,16 +107,16 @@ public class TestQuestionController {
 	}
 
 	
-	@GetMapping("/testQuestionbycourse/{course}")
-	public ResponseEntity<List<TestQuestiondto>> getTestQuestionbycourse(@PathVariable String course,@RequestBody TestPaperdto testPaperDto) {
-
-		List<TestQuestion> allTestQuestion = testQuestionService.getAllQuestionsByCourse(course, testPaperDto);
-		List<TestQuestiondto> dtoObj = new ArrayList<>();
-		for (TestQuestion testQuestion : allTestQuestion) {
-			TestQuestiondto testQuestionDto = testQuestionDtoConvertor.getTestQuestiondto(testQuestion);
-			dtoObj.add(testQuestionDto);
-		}
-		return new ResponseEntity<List<TestQuestiondto>>(dtoObj, HttpStatus.OK);
-	}
+//	@GetMapping("/testQuestionbycourse/{course}")
+//	public ResponseEntity<List<TestQuestiondto>> getTestQuestionbycourse(@PathVariable String course,@RequestBody TestPaperdto testPaperDto) {
+//
+//		List<TestQuestion> allTestQuestion = testQuestionService.getAllQuestionsByCourse(course, testPaperDto);
+//		List<TestQuestiondto> dtoObj = new ArrayList<>();
+//		for (TestQuestion testQuestion : allTestQuestion) {
+//			TestQuestiondto testQuestionDto = testQuestionDtoConvertor.getTestQuestiondto(testQuestion);
+//			dtoObj.add(testQuestionDto);
+//		}
+//		return new ResponseEntity<List<TestQuestiondto>>(dtoObj, HttpStatus.OK);
+//	}
 	
 }
