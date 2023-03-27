@@ -1,18 +1,18 @@
 export class StudentDto {
 
     studentId:number;
-	userName:string;
+	username:string;
 	password:string;
 	firstName:string;
 	lastName:string;
-	 gender:string;
+	gender:string;
 	emailId:string;
 	mobileNo:number;
 
 
     constructor(
         studentId:number,
-        userName:string,
+        username:string,
         password:string,
         firstName:string,
         lastName:string,
@@ -23,7 +23,7 @@ export class StudentDto {
 
     ){
         this.studentId = studentId;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;

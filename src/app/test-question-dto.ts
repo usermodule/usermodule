@@ -6,6 +6,8 @@ export class TestQuestionDto {
 	option2:string;
 	option3:string;
 	option4:string;
+    isAttempted: boolean = false;
+    
 
 
     constructor(
@@ -14,7 +16,8 @@ export class TestQuestionDto {
 	option1:string,
 	option2:string,
 	option3:string,
-	option4:string
+	option4:string,
+    isAttempted:boolean
 
     ){
         this.questionId = questionId;
@@ -23,6 +26,7 @@ export class TestQuestionDto {
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
+        this.isAttempted=isAttempted;
         
     }
 }

@@ -14,6 +14,8 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 import { RegisterStudentComponent } from './register-student/register-student.component';
 import { AttemptExamComponent } from './attempt-exam/attempt-exam.component';
 import { StartExamComponent } from './start-exam/start-exam.component';
+import { ScoreComponent } from './score/score.component';
+import { SubmittedExamComponent } from './submitted-exam/submitted-exam.component';
 
 const allLinks:Routes = [
   {path:'login',component:AppComponent},
@@ -23,7 +25,9 @@ const allLinks:Routes = [
   {path: 'viewQuestion',component: ViewQuestionComponent},
   {path:'addTestPaper',component: AddExamComponent},
   {path: 'getAllTestPaper',component: AttemptExamComponent},
-  {path: 'startExam',component: StartExamComponent}
+  {path: 'startExam',component: StartExamComponent},
+  {path: 'getScore',component:ScoreComponent},
+  {path: 'submittedExam',component:SubmittedExamComponent}
   
 ]
 
@@ -36,7 +40,9 @@ const allLinks:Routes = [
     AddQuestionComponent,
     RegisterStudentComponent,
     AttemptExamComponent,
-    StartExamComponent
+    StartExamComponent,
+    ScoreComponent,
+    SubmittedExamComponent
   ],
   imports: [
     BrowserModule,

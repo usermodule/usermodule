@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Exam } from './exam';
 import { ExamDto } from './exam-dto';
 
 @Injectable({
@@ -10,7 +11,8 @@ export class ExamOperationService {
   baseURL:string = 'http://localhost:2025';
 
   addExamEndPoint:string=this.baseURL+'/exam/add';
-  updateScoreByExamIdEndPoint:string=this.baseURL+'/exam';
+  updateScoreByExamIdEndPoint:string=this.baseURL+'/exam/studentAnswer';
+  getScoreByExamIdEndPoint:string=this.baseURL+'/exam/scoreByExamId'
 
 
   constructor(private http: HttpClient) { }
@@ -23,19 +25,30 @@ export class ExamOperationService {
 
 
 
-  UdateScoreByExamId(examId:number):Observable<ExamDto>{
+  updateScoreByExamId(data: any):Observable<ExamDto[]>{
 
-   console.log("inside the method :"+examId);
+   console.log("inside the method :");
     
-     let updateScoreByExamIdEndPoint='';
+    //  let updateScoreByExamIdEndPoint='';
     
      let examFromDB:ExamDto=new ExamDto(0,0,0,0,0,'');
-    
-     updateScoreByExamIdEndPoint =this.baseURL+'/items/'+examId;
-    
-   return this.http.put<ExamDto>(`${updateScoreByExamIdEndPoint}`,examFromDB);
+    let examId = sessionStorage.getItem("examId");
+    // let questionId = sessionStorage.getItem("questionId");
+    //  updateScoreByExamIdEndPoint =this.baseURL+'/exam'+examId;
+    this.updateScoreByExamIdEndPoint=this.baseURL+'/exam/studentAnswer/'+examId;
+    // this.updateScoreByExamIdEndPoint=this.updateScoreByExamIdEndPoint+'/'+questionId;
+   return this.http.put<ExamDto[]>(`${this.updateScoreByExamIdEndPoint}`,data);
     
    }
+
+
+
+   getScoreByExamId(examId: number):Observable<Exam>
+  {
+    console.log("inside service : "+this.getScoreByExamIdEndPoint);
+    this.getScoreByExamIdEndPoint=this.getScoreByExamIdEndPoint+'/'+examId;
+    return this.http.get<Exam>(`${this.getScoreByExamIdEndPoint}`);
+  }
 
 
 

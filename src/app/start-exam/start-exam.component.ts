@@ -16,26 +16,46 @@ export class StartExamComponent {
 
   status=false;
   msg=' ';
-  
+  i:number=0;
+
+
+   seconds:number = 30;
+
+   
 
   testQuestion: TestQuestion= new TestQuestion(0,'','','','','','');
 exam : Exam=new Exam(0,0,0,'');
   testQuestionDto: TestQuestionDto[]=[];
+
+  attempt: boolean[]=[];
+
+  allTestQuestionDto: TestQuestionDto= new TestQuestionDto(0,'','','','','',false);
+
   examDto: ExamDto[]=[];
   testPaperId: number = 0;
-  examId: number=0;
-  constructor(private testQuestionService: TestQuestionOperationService, private router: Router,private examService:ExamOperationService){
+  examId: number=1;
+
+  // questionId:number=1;
+  // questionId: number=1;
+  constructor( private testQuestionService: TestQuestionOperationService, private router: Router,private examService:ExamOperationService){
    
   }
 
   getTestQuestionById(){
   //  this.testQuestionDto=[];
     // let testPaperId:number=parseInt(tId);
+    
     this.testQuestionService.getAllQuestionsByTestPaperId(this.testPaperId).subscribe(
       data=>{
+        sessionStorage.setItem("examId",this.examId+"");
+         
         console.log("data :- "+data);
         
         this.testQuestionDto = data;
+        for (let i = 0; i < this.testQuestionDto.length; i++) {
+          this.attempt[i]=false;
+          
+        }
       },err=>{
         console.log("error from spring ",err);
 
@@ -43,17 +63,24 @@ exam : Exam=new Exam(0,0,0,'');
     );
   }
 
- 
+ selectedAnswer = " ";
 
-  updateScore(){
-
-    this.examService.UdateScoreByExamId(this.examId).subscribe(
+  updateScoreByExamId(questionId:number){
+console.log(this.selectedAnswer);
+console.log(questionId);
+console.log(this.testQuestionDto);
+this.attempt[questionId-1]=true;
+    let JSONData = {
+      "studentAnswer" : this.selectedAnswer,
+      "questionNo" : questionId
+    } 
+    this.examService.updateScoreByExamId(JSONData).subscribe(
    
          
    data=>{
-    
+    // sessionStorage.setItem("questionId",this.questionId+"");
      this.status=true;
-    
+     
    this.msg="Score updated";
   },
     
@@ -62,9 +89,8 @@ exam : Exam=new Exam(0,0,0,'');
 
       }
     );
-
-      alert("Success! Question Added");
-      localStorage.setItem('pData',JSON.stringify(this.testQuestion));
+    localStorage.setItem('pData',JSON.stringify(this.examDto));
+      
 
     }
 
@@ -77,5 +103,15 @@ exam : Exam=new Exam(0,0,0,'');
   //     localStorage.setItem('pData',JSON.stringify(this.examDto));
   //   }
 
+
+  moveToSubmittedExam() {
+
+    alert("Success! Answer Saved");
+      localStorage.setItem('pData',JSON.stringify(this.testQuestion));
+    this.router.navigate(['submittedExam']);
+  }
+
+
+ 
   
 }

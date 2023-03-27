@@ -5,7 +5,7 @@
             <div class="form-group">
               <label class="form-label" for="form3Example1c">Difficulty Level</label>
                           
-              <input type="text" class="form-control"  [(ngModel)]="testPaper.difficultyLevel" id="difficultyLevel" name="difficultyLevel" #difficultyLevel="ngModel" placeholder="Difficulty Level" required pattern="[a-zA-Z]+" />
+              <input type="text" class="form-control"  [(ngModel)]="testPaper.difficultyLevel" id="difficultyLevel" name="difficultyLevel" #difficultyLevel="ngModel" placeholder="Difficulty Level" required pattern="^[a-zA-Z\s]+" />
               <div *ngIf="difficultyLevel.invalid && (difficultyLevel.dirty || difficultyLevel.touched)" class="myerror">
                 <div *ngIf="difficultyLevel.invalid==true">
                     <div style="color: red;" *ngIf="difficultyLevel.errors?.['required']">
@@ -20,7 +20,7 @@
           <div class="form-group">
             <label class="form-label" for="form3Example3c">Description </label>
                           
-            <input type="text" class="form-control"  [(ngModel)]="testPaper.description" id="description" name="description" #description="ngModel" placeholder="Description" required pattern="[a-zA-Z]+" />
+            <input type="text" class="form-control"  [(ngModel)]="testPaper.description" id="description" name="description" #description="ngModel" placeholder="Description" required pattern="[a-zA-Z\s]+" />
             <div *ngIf="description.invalid && (description.dirty || description.touched)" class="myerror">
               <div *ngIf="description.invalid==true">
                   <div style="color: red;" *ngIf="description.errors?.['required']">

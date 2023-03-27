@@ -26,41 +26,101 @@
                     Field is required Field
                 </div>
                 <div style="color: red;" *ngIf="username.errors?.['pattern']">
-                  Name is not valid
+                  Field is not valid
              </div>
             </div>
        </div>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
+            <input class="form-control" type="password" name="password" id="password" [(ngModel)]="student.password" placeholder="********"  #password="ngModel" required  pattern="[a-zA-Z0-9]*"/>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="myerror">
+              <div *ngIf="password.invalid==true">
+                  <div style="color: red;" *ngIf="password.errors?.['required']">
+                      Field is required Field
+                  </div>
+                  <div style="color: red;" *ngIf="password.errors?.['pattern']">
+                    Field is not valid
+               </div>
+              </div>
+         </div>
           </div>
           <div class="form-group">
             <label for="firstname">First Name</label>
-            <input class="form-control" type="text" name="firstname" id="firstname" placeholder="james.bond" required />
+            <input class="form-control" type="text" name="firstname" id="firstname" [(ngModel)]="student.firstName" placeholder="james.bond"  #firstName="ngModel" required pattern="[a-zA-Z]+"/>
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="myerror">
+              <div *ngIf="firstName.invalid==true">
+                  <div style="color: red;" *ngIf="firstName.errors?.['required']">
+                      Field is required Field
+                  </div>
+                  <div style="color: red;" *ngIf="firstName.errors?.['pattern']">
+                    Field is not valid
+               </div>
+              </div>
+         </div>
           </div>
           <div class="form-group">
             <label for="firstname">Last Name</label>
-            <input class="form-control" type="text" name="lastname" id="lastname" placeholder="james.bond" required />
+            <input class="form-control" type="text" name="lastname" id="lastname" [(ngModel)]="student.lastName" placeholder="james.bond"  #lastName="ngModel" required pattern="[a-zA-Z]+"/>
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="myerror">
+              <div *ngIf="lastName.invalid==true">
+                  <div style="color: red;" *ngIf="lastName.errors?.['required']">
+                      Field is required Field
+                  </div>
+                  <div style="color: red;" *ngIf="lastName.errors?.['pattern']">
+                    Field is not valid
+               </div>
+              </div>
+         </div>
           </div>
           <div class="form-group">
             <label for="firstname">Gender</label>
-            <input class="form-control" type="text" name="gender" id="gender" placeholder="james.bond" required />
+            <input class="form-control" type="text" name="gender" id="gender" [(ngModel)]="student.gender" placeholder="james.bond"  #gender="ngModel" required pattern="[a-zA-Z]+" />
+            <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="myerror">
+              <div *ngIf="gender.invalid==true">
+                  <div style="color: red;" *ngIf="gender.errors?.['required']">
+                      Field is required Field
+                  </div>
+                  <div style="color: red;" *ngIf="gender.errors?.['pattern']">
+                    Field is not valid
+               </div>
+              </div>
+         </div>
           </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input class="form-control" type="text" name="email" id="email" placeholder="james.bond@spectre.com" required />
-        </div>
+          <input class="form-control" type="text" name="email" id="email" [(ngModel)]="student.emailId" placeholder="james.bond@spectre.com"  #emailId="ngModel" required />
         
+        <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="myerror">
+          <div *ngIf="emailId.invalid==true">
+              <div style="color: red;" *ngIf="emailId.errors?.['required']">
+                  Field is required Field
+              </div>
+              <div style="color: red;" *ngIf="emailId.errors?.['pattern']">
+                Field is not valid
+           </div>
+          </div>
+     </div>
+    </div>
         <div class="form-group">
           <label for="mobileNo">Mobile Number</label>
-          <input class="form-control" type="text" name="mobileNo" id="mobileNo" placeholder="james.bond" required />
+          <input class="form-control" type="text" name="mobileNo" id="mobileNo"[(ngModel)]="student.mobileNo"  placeholder="james.bond"  #mobileNo="ngModel" required pattern="[0-9]+"/>
+          <div *ngIf="mobileNo.invalid && (mobileNo.dirty || mobileNo.touched)" class="myerror">
+            <div *ngIf="mobileNo.invalid==true">
+                <div style="color: red;" *ngIf="mobileNo.errors?.['required']">
+                    Field is required Field
+                </div>
+                <div style="color: red;" *ngIf="mobileNo.errors?.['pattern']">
+                  Field is not valid
+             </div>
+            </div>
+       </div>
         </div>
         <br/>
         <div class="m-t-lg">
           <ul class="list-inline">
             <li>
-              <input class="btn btn-outline-info" (click)="onRegisteringStudent()" type="submit" value="Register" />
+              <button class="btn btn-outline-info" (click)="onRegisteringStudent()" type="submit"  >Register</button>
               <!-- <a  class="signup__link" routerLink="/"><div style="margin-left: 2cm;"> am already a member </div></a> -->
             </li>
 

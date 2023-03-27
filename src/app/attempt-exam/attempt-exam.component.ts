@@ -33,6 +33,7 @@ export class AttemptExamComponent {
   );
   }
 
+  
 
   moveToStartExam(){
     this.router.navigate(['startExam']);
